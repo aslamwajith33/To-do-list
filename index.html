@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <title>DAYFLOW – Personal Productivity &amp; Daily Life Tracker</title>
+  <meta name="description" content="Organize everyday tasks, manage your bucket list, maintain daily discipline, track achievements, earn XP points, and build consistent habits." />
+  <link rel="canonical" href="https://todolist-lilac-alpha-32.vercel.app/" />
+
+  <!-- Open Graph & Social Sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://todolist-lilac-alpha-32.vercel.app/" />
+  <meta property="og:title" content="DAYFLOW – Personal Productivity &amp; Daily Life Tracker" />
+  <meta property="og:description" content="Organize everyday tasks, build consistent habits, track streaks, and conquer goals." />
+  <meta property="og:image" content="https://todolist-lilac-alpha-32.vercel.app/assets/icons/icon-512.png" />
+
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#080c16" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="DAYFLOW" />
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="/assets/icons/icon-192.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/views.css" />
+</head>
+<body>
+  <div id="app-root">
+    <!-- Desktop Left Sidebar -->
+    <aside class="app-sidebar" id="app-sidebar">
+      <!-- Brand Section -->
+      <div class="brand-section">
+        <div class="brand-logo-wrap">
+          <svg class="brand-logo-img" viewBox="0 0 128 128" fill="none">
+            <circle cx="64" cy="64" r="38" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-dasharray="190 50" />
+            <path d="M48 64 L59 75 L82 52" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">DAYFLOW</span>
+          <span class="brand-badge">Discipline &bull; Growth</span>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="sidebar-nav" aria-label="Main Navigation">
+        <a href="#dashboard" class="nav-link active" data-route="dashboard">
+          <svg class="dayflow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/>
+          </svg>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="#planner" class="nav-link" data-route="planner">
+          <svg class="dayflow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="6" height="6" rx="1"/><path d="m3 17 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/>
+          </svg>
+          <span>Daily Planner</span>
+        </a>
+
+        <a href="#bucket-list" class="nav-link" data-route="bucket-list">
+          <svg class="dayflow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+          </svg>
+          <span>Bucket List</span>
+        </a>
+
+        <a href="#streaks" class="nav-link" data-route="streaks">
+          <svg class="dayflow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+          </svg>
+          <span>Streak Tracker</span>
+        </a>
+
+        <a href="#analytics" class="nav-link" data-route="analytics">
+          <svg class="dayflow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/>
+          </svg>
+          <span>My Progress</span>
+        </a>
+
+        <a href="#settings" class="nav-link" data-route="settings">
+          <svg class="dayflow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>
+          </svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+
+      <!-- Sidebar PWA Install Button -->
+      <button id="sidebar-pwa-install" class="btn-sidebar-install">
+        <svg class="dayflow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>
+        </svg>
+        <span>Install App</span>
+      </button>
+
+      <!-- Sidebar User Profile Card -->
+      <div class="sidebar-footer">
+        <div class="sidebar-user-card" onclick="window.dayflowApp.navigate('settings')" style="cursor: pointer;" title="Profile &amp; Settings">
+          <div class="sidebar-user-top">
+            <div class="sidebar-avatar" id="sidebar-avatar">A</div>
+            <div class="sidebar-user-info">
+              <span class="sidebar-user-name" id="sidebar-user-name">Ahmed</span>
+              <span class="sidebar-user-level" id="sidebar-user-level">Lvl 1 Novice</span>
+            </div>
+          </div>
+          <div class="level-bar-track" style="margin-top: 2px;">
+            <div class="level-bar-fill" id="sidebar-level-bar" style="width: 25%;"></div>
+          </div>
+          <div class="sidebar-badges-row">
+            <div class="sidebar-pill pill-streak" title="Current Daily Streak">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+              <span id="sidebar-streak-badge">0d</span>
+            </div>
+            <div class="sidebar-pill pill-xp" title="Total XP Earned">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <span id="sidebar-xp-badge">0 XP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Shell -->
+    <main class="app-main">
+      <!-- Mobile Top Header -->
+      <header class="mobile-top-header">
+        <div class="brand-section" style="padding: 0; border: none;">
+          <div class="brand-logo-wrap" style="width: 32px; height: 32px;">
+            <svg class="brand-logo-img" viewBox="0 0 128 128" fill="none" style="width: 20px; height: 20px;">
+              <circle cx="64" cy="64" r="38" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-dasharray="190 50" />
+              <path d="M48 64 L59 75 L82 52" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <span class="brand-title" style="font-size: 1.1rem;">DAYFLOW</span>
+        </div>
+        <button class="btn btn-primary btn-sm btn-icon-gap" onclick="window.dayflowApp.openAddTaskModal()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+          Task
+        </button>
+      </header>
+
+      <!-- Main Dynamic View Container -->
+      <div id="main-view-container"></div>
+    </main>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+      <a href="#dashboard" class="bottom-nav-item active" data-route="dashboard">
+        <svg class="dayflow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+        <span>Home</span>
+      </a>
+
+      <a href="#planner" class="bottom-nav-item" data-route="planner">
+        <svg class="dayflow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="6" height="6" rx="1"/><path d="m3 17 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/></svg>
+        <span>Tasks</span>
+      </a>
+
+      <a href="#bucket-list" class="bottom-nav-item" data-route="bucket-list">
+        <svg class="dayflow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        <span>Bucket</span>
+      </a>
+
+      <a href="#streaks" class="bottom-nav-item" data-route="streaks">
+        <svg class="dayflow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+        <span>Streaks</span>
+      </a>
+
+      <a href="#analytics" class="bottom-nav-item" data-route="analytics">
+        <svg class="dayflow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
+        <span>Progress</span>
+      </a>
+
+      <a href="#settings" class="bottom-nav-item" data-route="settings">
+        <svg class="dayflow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span>Settings</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- JavaScript Modules in Dependency Order -->
+  <script src="/js/icons.js"></script>
+  <script src="/js/quotes.js"></script>
+  <script src="/js/audio.js"></script>
+  <script src="/js/confetti.js"></script>
+  <script src="/js/store.js"></script>
+  <script src="/js/gamification.js"></script>
+  <script src="/js/charts.js"></script>
+
+  <!-- Views -->
+  <script src="/js/views/dashboardView.js"></script>
+  <script src="/js/views/plannerView.js"></script>
+  <script src="/js/views/bucketView.js"></script>
+  <script src="/js/views/streakView.js"></script>
+  <script src="/js/views/analyticsView.js"></script>
+  <script src="/js/views/settingsView.js"></script>
+
+  <!-- App Bootstrap -->
+  <script src="/js/app.js"></script>
+</body>
+</html>
+
